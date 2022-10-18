@@ -1,0 +1,27 @@
+---
+title: "`r glue::glue('Analyse des donnes *{params$data}*')`"
+author: "Marie VAUGOYEAU"
+date: "`r format(Sys.time(), '%e %B %Y')`"
+output:
+  html_document:
+    toc: yes
+    number_section: yes
+params:
+  data: women
+---
+# Intialisation  
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+  
+# Afficher les données  
+Ce jeu de données contient `r nrow(get(params$dat))` lignes.   
+```{r resume_donnes, echo = FALSE}
+knitr::kable(get(params$data))
+```
+
+# Visualisation des données  
+```{r graphique, echo = FALSE}
+plot(get(params$data))
+```
+
